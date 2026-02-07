@@ -1,6 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ["@nuxt/ui"],
+  colorMode: {
+    preference: "light",
+    fallback: "light",
+    classSuffix: "",
+    storageKey: "ouru-color-mode"
+  },
   css: ["@/assets/css/main.css"],
   app: {
     head: {

@@ -152,7 +152,15 @@ const handleConvert = async () => {
 </script>
 
 <template>
-  <UCard class="hero-panel" :ui="{ body: 'p-0', header: 'p-0' }">
+  <UCard
+    class="hero-panel"
+    :ui="{
+      body: { base: 'p-0 bg-white' },
+      header: { base: 'p-0 bg-white' },
+      ring: 'ring-0',
+      divide: 'divide-y divide-[var(--line)]'
+    }"
+  >
     <template #header>
       <div class="panel-header">
         <span>Conversion Studio</span>
@@ -161,14 +169,19 @@ const handleConvert = async () => {
     </template>
     <div class="panel-body">
       <UFormGroup label="Paste Ouru text">
-        <UTextarea v-model="textInput" :rows="7" placeholder="Paste your Ouru text here..." />
+        <UTextarea
+          v-model="textInput"
+          :rows="7"
+          variant="outline"
+          placeholder="Paste your Ouru text here..."
+        />
       </UFormGroup>
       <div class="field-row">
         <UFormGroup label="Output format">
-          <USelect v-model="outputFormat" :options="formatOptions" />
+          <USelect v-model="outputFormat" :options="formatOptions" variant="outline" />
         </UFormGroup>
         <UFormGroup label="Page size">
-          <USelect v-model="pageSize" :options="pageOptions" />
+          <USelect v-model="pageSize" :options="pageOptions" variant="outline" />
         </UFormGroup>
       </div>
       <div class="toggle-row">
@@ -176,7 +189,7 @@ const handleConvert = async () => {
         <UCheckbox v-model="includeToc" label="Include table of contents" />
       </div>
       <UFormGroup label="File name">
-        <UInput v-model="fileName" placeholder="ouru-report-q1" />
+        <UInput v-model="fileName" variant="outline" placeholder="ouru-report-q1" />
       </UFormGroup>
       <UButton
         color="neutral"

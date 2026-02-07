@@ -13,7 +13,6 @@
         <a href="#configure">Configure</a>
         <a href="#security">Security</a>
       </nav>
-      <UButton color="neutral" variant="ghost" size="sm">Sign in</UButton>
     </div>
   </header>
 </template>
