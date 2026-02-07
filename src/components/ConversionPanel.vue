@@ -12,6 +12,8 @@ const fileName = ref("ouru-document");
 const isConverting = ref(false);
 const statusMessage = ref("");
 
+const MAX_TEXT_LENGTH = 10_000_000;
+
 const formatOptions: Format[] = ["PDF", "Word (DOCX)"];
 const pageOptions = ["A4", "Letter", "Legal"];
 
@@ -46,13 +48,17 @@ const convertToPdf = async (content: string, name: string) => {
   let cursorY = height - margin;
 
   const paragraphs = content.split("\n");
+  const maxLineWidth = width - margin * 2;
+  
   for (const paragraph of paragraphs) {
     const words = paragraph.split(" ");
     let line = "";
     for (const word of words) {
       const testLine = line ? `${line} ${word}` : word;
       const testWidth = font.widthOfTextAtSize(testLine, fontSize);
-      if (testWidth > width - margin * 2) {
+      
+      const wordWidth = font.widthOfTextAtSize(word, fontSize);
+      if (wordWidth > maxLineWidth && line) {
         if (cursorY <= margin) {
           page = pdfDoc.addPage([width, height]);
           cursorY = height - margin;
@@ -65,7 +71,59 @@ const convertToPdf = async (content: string, name: string) => {
           color: rgb(0.12, 0.12, 0.12)
         });
         cursorY -= lineHeight;
-        line = word;
+        line = "";
+      }
+      
+      if (testWidth > maxLineWidth) {
+        if (line) {
+          if (cursorY <= margin) {
+            page = pdfDoc.addPage([width, height]);
+            cursorY = height - margin;
+          }
+          page.drawText(line, {
+            x: margin,
+            y: cursorY,
+            size: fontSize,
+            font,
+            color: rgb(0.12, 0.12, 0.12)
+          });
+          cursorY -= lineHeight;
+        }
+        if (wordWidth > maxLineWidth) {
+          let remainingWord = word;
+          while (remainingWord.length > 0) {
+            if (cursorY <= margin) {
+              page = pdfDoc.addPage([width, height]);
+              cursorY = height - margin;
+            }
+            let charIndex = 0;
+            let charLine = "";
+            while (charIndex < remainingWord.length) {
+              const testCharLine = charLine + remainingWord[charIndex];
+              if (font.widthOfTextAtSize(testCharLine, fontSize) > maxLineWidth && charLine) {
+                break;
+              }
+              charLine = testCharLine;
+              charIndex++;
+            }
+            if (!charLine && charIndex < remainingWord.length) {
+              charLine = remainingWord[0];
+              charIndex = 1;
+            }
+            page.drawText(charLine, {
+              x: margin,
+              y: cursorY,
+              size: fontSize,
+              font,
+              color: rgb(0.12, 0.12, 0.12)
+            });
+            cursorY -= lineHeight;
+            remainingWord = remainingWord.slice(charIndex);
+          }
+          line = "";
+        } else {
+          line = word;
+        }
       } else {
         line = testLine;
       }
@@ -88,12 +146,9 @@ const convertToPdf = async (content: string, name: string) => {
     cursorY -= lineHeight * 0.4;
   }
 
-  if (!embedFonts.value) {
-    // PDF-lib embeds standard fonts by default; keep for future custom font toggle.
-  }
-
   const pdfBytes = await pdfDoc.save();
-  downloadBlob(new Blob([pdfBytes], { type: "application/pdf" }), `${name}.pdf`);
+  const arrayBuffer = pdfBytes.buffer.slice(pdfBytes.byteOffset, pdfBytes.byteOffset + pdfBytes.byteLength);
+  downloadBlob(new Blob([arrayBuffer], { type: "application/pdf" }), `${name}.pdf`);
 };
 
 const convertToDocx = async (content: string, name: string) => {
@@ -131,6 +186,11 @@ const handleConvert = async () => {
     return;
   }
 
+  if (textInput.value.length > MAX_TEXT_LENGTH) {
+    statusMessage.value = `Text is too large (${(textInput.value.length / 1_000_000).toFixed(1)}MB). Maximum size is ${(MAX_TEXT_LENGTH / 1_000_000).toFixed(0)}MB. Please split your text into smaller chunks.`;
+    return;
+  }
+
   const safeName = sanitizeFileName(fileName.value || "ouru-document") || "ouru-document";
   statusMessage.value = "Converting...";
   isConverting.value = true;
@@ -143,8 +203,15 @@ const handleConvert = async () => {
     }
     statusMessage.value = "Conversion complete. Your download should begin.";
   } catch (error) {
-    statusMessage.value = "Conversion failed. Please try again.";
-    console.error(error);
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    if (errorMessage.includes("memory") || errorMessage.includes("allocation") || errorMessage.includes("size")) {
+      statusMessage.value = "Text is too large to process. Please try splitting it into smaller chunks or reduce the content size.";
+    } else if (errorMessage.includes("timeout") || errorMessage.includes("time")) {
+      statusMessage.value = "Conversion timed out. The text may be too large. Please try a smaller chunk.";
+    } else {
+      statusMessage.value = `Conversion failed: ${errorMessage}. Please try again or split your text into smaller chunks.`;
+    }
+    console.error("Conversion error:", error);
   } finally {
     isConverting.value = false;
   }
@@ -168,7 +235,14 @@ const handleConvert = async () => {
           :rows="7"
           variant="outline"
           placeholder="Paste your Ouru text here..."
+          :maxlength="MAX_TEXT_LENGTH"
         />
+        <p v-if="textInput.length > 0" class="mt-1 text-xs text-gray-500">
+          {{ (textInput.length / 1_000_000).toFixed(2) }}MB / {{ (MAX_TEXT_LENGTH / 1_000_000).toFixed(0) }}MB
+          <span v-if="textInput.length > MAX_TEXT_LENGTH * 0.9" class="text-orange-600 font-medium">
+            (approaching limit)
+          </span>
+        </p>
       </UFormGroup>
       <div class="field-row">
         <UFormGroup label="Output format">
