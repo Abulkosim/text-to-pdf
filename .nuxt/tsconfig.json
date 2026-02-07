@@ -115,6 +115,18 @@
       "vue-demi": [
         "../node_modules/nuxt/dist/app/compat/vue-demi"
       ],
+      "#ui": [
+        "../node_modules/@nuxt/ui/dist/runtime"
+      ],
+      "#ui/*": [
+        "../node_modules/@nuxt/ui/dist/runtime/*"
+      ],
+      "#ui-colors": [
+        "./ui.colors.mjs"
+      ],
+      "#color-mode-options": [
+        "./color-mode-options.mjs"
+      ],
       "#vue-router": [
         "../node_modules/vue-router"
       ],
@@ -123,6 +135,9 @@
       ],
       "#imports": [
         "./imports"
+      ],
+      "#tailwind-config": [
+        "./tailwind/expose"
       ],
       "#app-manifest": [
         "./manifest/meta/dev"

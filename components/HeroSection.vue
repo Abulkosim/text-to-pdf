@@ -1,0 +1,38 @@
+<template>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <UBadge color="neutral" variant="soft" class="pill">Precision conversion for Ouru text</UBadge>
+        <h1>
+          Turn Ouru text into
+          <span class="accent">pixel-clean PDFs</span>
+          or Word files.
+        </h1>
+        <p>
+          A minimal workspace for configuring fonts, layout, and metadata while keeping
+          output consistent across teams.
+        </p>
+        <div class="hero-actions">
+          <UButton color="neutral">Start converting</UButton>
+          <UButton color="neutral" variant="ghost">View sample</UButton>
+        </div>
+        <div class="hero-meta">
+          <div>
+            <div class="meta-label">Formats</div>
+            <div class="meta-value">PDF, DOCX</div>
+          </div>
+          <div>
+            <div class="meta-label">Avg render</div>
+            <div class="meta-value">0.8s</div>
+          </div>
+          <div>
+            <div class="meta-label">Compliance</div>
+            <div class="meta-value">SOC 2 ready</div>
+          </div>
+        </div>
+      </div>
+
+      <ConversionPanel />
+    </div>
+  </section>
+</template>
