@@ -9,8 +9,7 @@
           or Word files.
         </h1>
         <p>
-          A minimal workspace for configuring fonts, layout, and metadata while keeping
-          output consistent across teams.
+          Convert Your Ouru text into polished PDF or Word files with clean, professional settings.
         </p>
         <div class="hero-actions">
           <UButton color="primary">Start converting</UButton>

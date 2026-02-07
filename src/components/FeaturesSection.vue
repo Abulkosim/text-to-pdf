@@ -19,7 +19,7 @@
         </div>
         <div class="card">
           <h3>Brand typography</h3>
-          <p>Lock fonts, sizes, and spacing with versioned profiles.</p>
+          <p>Control margins, page grids, headers, and output metadata.</p>
         </div>
         <div class="card">
           <h3>Fast approvals</h3>
