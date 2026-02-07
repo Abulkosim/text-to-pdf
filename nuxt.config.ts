@@ -3,8 +3,8 @@ export default defineNuxtConfig({
   srcDir: "src/",
   modules: ["@nuxt/ui"],
   colorMode: {
-    preference: "light",
-    fallback: "light",
+    preference: "dark",
+    fallback: "dark",
     classSuffix: "",
     storageKey: "ouru-color-mode"
   },
