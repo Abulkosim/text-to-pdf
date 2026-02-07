@@ -161,12 +161,6 @@ const handleConvert = async () => {
       divide: 'divide-y divide-[var(--line)]'
     }"
   >
-    <template #header>
-      <div class="panel-header">
-        <span>Conversion Studio</span>
-        <UBadge color="primary" variant="soft">Live</UBadge>
-      </div>
-    </template>
     <div class="panel-body">
       <UFormGroup label="Paste Ouru text">
         <UTextarea
