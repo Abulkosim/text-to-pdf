@@ -2,10 +2,10 @@
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <UBadge color="neutral" variant="soft" class="pill">Precision conversion for Ouru text</UBadge>
+        <UBadge color="gray" variant="soft" class="pill">Precision conversion for Ouru text</UBadge>
         <h1>
           Turn Ouru text into
-          <span class="accent">pixel-clean PDFs</span>
+          <span class="text-primary">pixel-clean PDFs</span>
           or Word files.
         </h1>
         <p>
@@ -13,8 +13,7 @@
           output consistent across teams.
         </p>
         <div class="hero-actions">
-          <UButton color="neutral">Start converting</UButton>
-          <UButton color="neutral" variant="ghost">View sample</UButton>
+          <UButton color="primary">Start converting</UButton>
         </div>
         <div class="hero-meta">
           <div>

@@ -14,13 +14,13 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 interface _GlobalComponents {
-  ConfigSection: typeof import("../../components/ConfigSection.vue")['default']
-  ConversionPanel: typeof import("../../components/ConversionPanel.vue")['default']
-  FeaturesSection: typeof import("../../components/FeaturesSection.vue")['default']
-  HeroSection: typeof import("../../components/HeroSection.vue")['default']
-  SecuritySection: typeof import("../../components/SecuritySection.vue")['default']
-  SiteFooter: typeof import("../../components/SiteFooter.vue")['default']
-  SiteHeader: typeof import("../../components/SiteHeader.vue")['default']
+  ConfigSection: typeof import("../../src/components/ConfigSection.vue")['default']
+  ConversionPanel: typeof import("../../src/components/ConversionPanel.vue")['default']
+  FeaturesSection: typeof import("../../src/components/FeaturesSection.vue")['default']
+  HeroSection: typeof import("../../src/components/HeroSection.vue")['default']
+  SecuritySection: typeof import("../../src/components/SecuritySection.vue")['default']
+  SiteFooter: typeof import("../../src/components/SiteFooter.vue")['default']
+  SiteHeader: typeof import("../../src/components/SiteHeader.vue")['default']
   UAccordion: typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
   UAlert: typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']
   UAvatar: typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/elements/Avatar.vue")['default']
@@ -95,13 +95,13 @@ interface _GlobalComponents {
   Html: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Html']
   Body: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Body']
   NuxtIsland: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-island")['default']
-  LazyConfigSection: LazyComponent<typeof import("../../components/ConfigSection.vue")['default']>
-  LazyConversionPanel: LazyComponent<typeof import("../../components/ConversionPanel.vue")['default']>
-  LazyFeaturesSection: LazyComponent<typeof import("../../components/FeaturesSection.vue")['default']>
-  LazyHeroSection: LazyComponent<typeof import("../../components/HeroSection.vue")['default']>
-  LazySecuritySection: LazyComponent<typeof import("../../components/SecuritySection.vue")['default']>
-  LazySiteFooter: LazyComponent<typeof import("../../components/SiteFooter.vue")['default']>
-  LazySiteHeader: LazyComponent<typeof import("../../components/SiteHeader.vue")['default']>
+  LazyConfigSection: LazyComponent<typeof import("../../src/components/ConfigSection.vue")['default']>
+  LazyConversionPanel: LazyComponent<typeof import("../../src/components/ConversionPanel.vue")['default']>
+  LazyFeaturesSection: LazyComponent<typeof import("../../src/components/FeaturesSection.vue")['default']>
+  LazyHeroSection: LazyComponent<typeof import("../../src/components/HeroSection.vue")['default']>
+  LazySecuritySection: LazyComponent<typeof import("../../src/components/SecuritySection.vue")['default']>
+  LazySiteFooter: LazyComponent<typeof import("../../src/components/SiteFooter.vue")['default']>
+  LazySiteHeader: LazyComponent<typeof import("../../src/components/SiteHeader.vue")['default']>
   LazyUAccordion: LazyComponent<typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']>
   LazyUAlert: LazyComponent<typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']>
   LazyUAvatar: LazyComponent<typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/elements/Avatar.vue")['default']>

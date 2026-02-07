@@ -38,7 +38,7 @@ import { walkResolver } from 'file:///Users/abulkosim/Documents/New%20project/no
 import { getIcons } from 'file:///Users/abulkosim/Documents/New%20project/node_modules/@iconify/utils/lib/index.mjs';
 import { collections } from 'file:///Users/abulkosim/Documents/New%20project/.nuxt/nuxt-icon-server-bundle.mjs';
 
-const serverAssets = [{"baseName":"server","dir":"/Users/abulkosim/Documents/New project/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/Users/abulkosim/Documents/New project/src/server/assets"}];
 
 const assets$1 = createStorage();
 
@@ -51,7 +51,7 @@ const storage = createStorage({});
 storage.mount('/assets', assets$1);
 
 storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/abulkosim/Documents/New project","watchOptions":{"ignored":[null]}}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/abulkosim/Documents/New project/server","watchOptions":{"ignored":[null]}}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/abulkosim/Documents/New project/src/server","watchOptions":{"ignored":[null]}}));
 storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/abulkosim/Documents/New project/.nuxt"}));
 storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/abulkosim/Documents/New project/.nuxt/cache"}));
 storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/abulkosim/Documents/New project/.data/kv"}));
@@ -578,6 +578,15 @@ function cloneWithProxy(obj, overrides) {
 }
 const cachedEventHandler = defineCachedEventHandler;
 
+const defineAppConfig = (config) => config;
+
+const appConfig0 = defineAppConfig({
+  ui: {
+    primary: "indigo",
+    gray: "slate"
+  }
+});
+
 const inlineAppConfig = {
   "nuxt": {},
   "icon": {
@@ -801,9 +810,7 @@ const inlineAppConfig = {
   }
 };
 
-
-
-const appConfig = defuFn(inlineAppConfig);
+const appConfig = defuFn(appConfig0, inlineAppConfig);
 
 function getEnv(key, opts) {
   const envKey = snakeCase(key).toUpperCase();
@@ -2372,7 +2379,22 @@ _lPoIUHMbdKyLDbb87TpAKJFUJOV4LUxKtx2cY38T0,
 _CkEBkQa_acA3KZDBcNqx6hDEQu1oONutpz0iVJv3bUw
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"1c13e-CoMqJdiCTUaGEAnWFBZYae219hQ\"",
+    "mtime": "2026-02-07T18:41:04.498Z",
+    "size": 115006,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"6cd8d-IUNIlsKjoLPmDdAP3uqw5O64rqc\"",
+    "mtime": "2026-02-07T18:41:04.498Z",
+    "size": 445837,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));

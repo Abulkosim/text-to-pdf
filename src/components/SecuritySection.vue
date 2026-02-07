@@ -8,10 +8,6 @@
           Files are processed in isolated environments with automatic purge policies and
           audit-ready logs.
         </p>
-        <div class="security-actions">
-          <UButton color="neutral">Request security overview</UButton>
-          <UButton color="neutral" variant="ghost">Read architecture note</UButton>
-        </div>
       </div>
       <div class="security-grid">
         <div class="security-card">

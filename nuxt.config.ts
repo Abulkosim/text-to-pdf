@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  srcDir: "src/",
   modules: ["@nuxt/ui"],
   colorMode: {
     preference: "light",
@@ -7,7 +8,7 @@ export default defineNuxtConfig({
     classSuffix: "",
     storageKey: "ouru-color-mode"
   },
-  css: ["@/assets/css/main.css"],
+  css: ["~/assets/css/main.css"],
   app: {
     head: {
       title: "Ouru Text to PDF",

@@ -22,28 +22,24 @@
             <p class="config-value">Client Proposal v2</p>
             <p class="config-note">Sets spacing, typographic rhythm, and output metadata.</p>
           </div>
-          <UButton color="neutral" variant="solid" size="xs">Apply</UButton>
         </div>
         <div class="config-row">
           <div class="config-row-copy">
             <p class="config-label">Header style</p>
             <p class="config-value">Minimal (logo left)</p>
           </div>
-          <UButton color="neutral" variant="ghost" size="xs">Edit</UButton>
         </div>
         <div class="config-row">
           <div class="config-row-copy">
             <p class="config-label">Export quality</p>
             <p class="config-value">Print-ready 300 DPI</p>
           </div>
-          <UButton color="neutral" variant="ghost" size="xs">Tune</UButton>
         </div>
         <div class="config-row">
           <div class="config-row-copy">
             <p class="config-label">Security</p>
             <p class="config-value">Password + watermark</p>
           </div>
-          <UButton color="neutral" variant="ghost" size="xs">Manage</UButton>
         </div>
       </div>
     </div>

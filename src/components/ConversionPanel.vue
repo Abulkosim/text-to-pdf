@@ -164,7 +164,7 @@ const handleConvert = async () => {
     <template #header>
       <div class="panel-header">
         <span>Conversion Studio</span>
-        <UBadge color="emerald" variant="soft">Live</UBadge>
+        <UBadge color="primary" variant="soft">Live</UBadge>
       </div>
     </template>
     <div class="panel-body">
@@ -192,7 +192,7 @@ const handleConvert = async () => {
         <UInput v-model="fileName" variant="outline" placeholder="ouru-report-q1" />
       </UFormGroup>
       <UButton
-        color="neutral"
+        color="primary"
         :loading="isConverting"
         block
         size="lg"

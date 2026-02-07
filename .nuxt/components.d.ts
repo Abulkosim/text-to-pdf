@@ -14,13 +14,13 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 
-export const ConfigSection: typeof import("../components/ConfigSection.vue")['default']
-export const ConversionPanel: typeof import("../components/ConversionPanel.vue")['default']
-export const FeaturesSection: typeof import("../components/FeaturesSection.vue")['default']
-export const HeroSection: typeof import("../components/HeroSection.vue")['default']
-export const SecuritySection: typeof import("../components/SecuritySection.vue")['default']
-export const SiteFooter: typeof import("../components/SiteFooter.vue")['default']
-export const SiteHeader: typeof import("../components/SiteHeader.vue")['default']
+export const ConfigSection: typeof import("../src/components/ConfigSection.vue")['default']
+export const ConversionPanel: typeof import("../src/components/ConversionPanel.vue")['default']
+export const FeaturesSection: typeof import("../src/components/FeaturesSection.vue")['default']
+export const HeroSection: typeof import("../src/components/HeroSection.vue")['default']
+export const SecuritySection: typeof import("../src/components/SecuritySection.vue")['default']
+export const SiteFooter: typeof import("../src/components/SiteFooter.vue")['default']
+export const SiteHeader: typeof import("../src/components/SiteHeader.vue")['default']
 export const UAccordion: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
 export const UAlert: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']
 export const UAvatar: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Avatar.vue")['default']
@@ -95,13 +95,13 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
-export const LazyConfigSection: LazyComponent<typeof import("../components/ConfigSection.vue")['default']>
-export const LazyConversionPanel: LazyComponent<typeof import("../components/ConversionPanel.vue")['default']>
-export const LazyFeaturesSection: LazyComponent<typeof import("../components/FeaturesSection.vue")['default']>
-export const LazyHeroSection: LazyComponent<typeof import("../components/HeroSection.vue")['default']>
-export const LazySecuritySection: LazyComponent<typeof import("../components/SecuritySection.vue")['default']>
-export const LazySiteFooter: LazyComponent<typeof import("../components/SiteFooter.vue")['default']>
-export const LazySiteHeader: LazyComponent<typeof import("../components/SiteHeader.vue")['default']>
+export const LazyConfigSection: LazyComponent<typeof import("../src/components/ConfigSection.vue")['default']>
+export const LazyConversionPanel: LazyComponent<typeof import("../src/components/ConversionPanel.vue")['default']>
+export const LazyFeaturesSection: LazyComponent<typeof import("../src/components/FeaturesSection.vue")['default']>
+export const LazyHeroSection: LazyComponent<typeof import("../src/components/HeroSection.vue")['default']>
+export const LazySecuritySection: LazyComponent<typeof import("../src/components/SecuritySection.vue")['default']>
+export const LazySiteFooter: LazyComponent<typeof import("../src/components/SiteFooter.vue")['default']>
+export const LazySiteHeader: LazyComponent<typeof import("../src/components/SiteHeader.vue")['default']>
 export const LazyUAccordion: LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']>
 export const LazyUAlert: LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']>
 export const LazyUAvatar: LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Avatar.vue")['default']>

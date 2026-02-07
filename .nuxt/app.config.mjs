@@ -232,6 +232,6 @@ if (import.meta.hot) {
   })
 }
 
+import cfg0 from "/Users/abulkosim/Documents/New project/src/app.config.ts"
 
-
-export default /*@__PURE__*/ defuFn(inlineConfig)
+export default /*@__PURE__*/ defuFn(cfg0, inlineConfig)
