@@ -6,7 +6,6 @@ type Format = "PDF" | "Word (DOCX)";
 const textInput = ref("");
 const outputFormat = ref<Format>("PDF");
 const pageSize = ref("A4");
-const embedFonts = ref(true);
 const includeToc = ref(false);
 const fileName = ref("ouru-document");
 const isConverting = ref(false);
@@ -253,7 +252,6 @@ const handleConvert = async () => {
         </UFormGroup>
       </div>
       <div class="toggle-row">
-        <UCheckbox v-model="embedFonts" label="Embed fonts" />
         <UCheckbox v-model="includeToc" label="Include table of contents" />
       </div>
       <UFormGroup label="File name">
