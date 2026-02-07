@@ -115,6 +115,13 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+  transform: none;
+}
+
 .btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
@@ -248,6 +255,11 @@ body {
   border-radius: 12px;
   border: 1px solid var(--line);
   background: #fbfbf9;
+}
+
+.status {
+  font-size: 13px;
+  color: var(--ink-muted);
 }
 
 .field-row {
