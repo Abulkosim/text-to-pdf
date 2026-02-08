@@ -21,7 +21,7 @@ useSeoMeta({
   ogLocale: "en_US",
   twitterCard: "summary_large_image",
   twitterTitle: "Ouru Text to PDF",
-  twitterDescription: config.public.siteDescription,
+  twitterDescription: config.public.siteDescription
 });
 
 useHead({
@@ -68,11 +68,28 @@ useHead({
 
 <template>
   <UApp>
-    <div class="page">
-      <SiteHeader />
-      <main>
-        <HeroSection />
+    <div class="tool-page">
+      <header class="tool-header">
+        <div class="tool-brand">
+          <span class="tool-mark">O</span>
+          <div>
+            <p class="tool-name">Ouru</p>
+            <p class="tool-subtitle">Text to PDF / Word</p>
+          </div>
+        </div>
+      </header>
+      <main class="tool-main">
+        <section class="tool-intro">
+          <h1>Convert text to PDF or DOCX</h1>
+          <p>Paste your content, choose format and page size, then download instantly.</p>
+        </section>
+        <section class="tool-card-wrap">
+          <ConversionPanel />
+        </section>
       </main>
+      <footer class="tool-footer">
+        <p>Client-side conversion. Nothing is uploaded.</p>
+      </footer>
     </div>
   </UApp>
 </template>
