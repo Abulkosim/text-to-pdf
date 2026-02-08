@@ -72,11 +72,7 @@ useHead({
       <SiteHeader />
       <main>
         <HeroSection />
-        <FeaturesSection />
-        <ConfigSection />
-        <SecuritySection />
       </main>
-      <SiteFooter />
     </div>
   </UApp>
 </template>

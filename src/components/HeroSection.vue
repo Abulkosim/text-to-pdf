@@ -11,9 +11,6 @@
         <p>
           Convert Your Ouru text into polished PDF or Word files with clean, professional settings.
         </p>
-        <div class="hero-actions">
-          <UButton color="primary">Start converting</UButton>
-        </div>
         <div class="hero-meta">
           <div>
             <div class="meta-label">Formats</div>
@@ -30,7 +27,7 @@
         </div>
       </div>
 
-      <ConversionPanel />
+      <ConversionPanel ref="conversionPanelRef" />
     </div>
   </section>
 </template>

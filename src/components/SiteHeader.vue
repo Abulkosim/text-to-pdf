@@ -8,11 +8,6 @@
           <span class="brand-sub">Text to PDF</span>
         </div>
       </div>
-      <nav class="nav">
-        <a href="#features">Features</a>
-        <a href="#configure">Configure</a>
-        <a href="#security">Security</a>
-      </nav>
     </div>
   </header>
 </template>

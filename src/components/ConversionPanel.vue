@@ -6,7 +6,6 @@ type Format = "PDF" | "Word (DOCX)";
 const textInput = ref("");
 const outputFormat = ref<Format>("PDF");
 const pageSize = ref("A4");
-const includeToc = ref(false);
 const fileName = ref("ouru-document");
 const isConverting = ref(false);
 const statusMessage = ref("");
@@ -151,20 +150,12 @@ const convertToPdf = async (content: string, name: string) => {
 };
 
 const convertToDocx = async (content: string, name: string) => {
-  const { Document, Packer, Paragraph, TextRun, TableOfContents } = await import("docx");
+  const { Document, Packer, Paragraph, TextRun } = await import("docx");
   const paragraphs = content.split("\n").map((line) =>
     new Paragraph({
       children: [new TextRun({ text: line })]
     })
   );
-
-  const children = includeToc.value
-    ? [
-        new Paragraph({ text: "Contents", heading: "Heading1" }),
-        new TableOfContents("Contents", { hyperlink: true, headingStyleRange: "1-5" }),
-        ...paragraphs
-      ]
-    : paragraphs;
 
   const doc = new Document({
     sections: [
@@ -230,6 +221,7 @@ const handleConvert = async () => {
     <div class="panel-body">
       <UFormGroup label="Paste Ouru text">
         <UTextarea
+          ref="inputRef"
           v-model="textInput"
           :rows="7"
           variant="outline"
@@ -250,9 +242,6 @@ const handleConvert = async () => {
         <UFormGroup label="Page size">
           <USelect v-model="pageSize" :options="pageOptions" variant="outline" />
         </UFormGroup>
-      </div>
-      <div class="toggle-row">
-        <UCheckbox v-model="includeToc" label="Include table of contents" />
       </div>
       <UFormGroup label="File name">
         <UInput v-model="fileName" variant="outline" placeholder="ouru-report-q1" />
