@@ -186,11 +186,7 @@ const handleConvert = async () => {
   isConverting.value = true;
 
   try {
-    if (outputFormat.value === "PDF") {
-      await convertToPdf(textInput.value, safeName);
-    } else {
-      await convertToDocx(textInput.value, safeName);
-    }
+    outputFormat.value === "PDF" ? await convertToPdf(textInput.value, safeName) : await convertToDocx(textInput.value, safeName);
     statusMessage.value = "Conversion complete. Your download should begin.";
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error);
@@ -201,7 +197,6 @@ const handleConvert = async () => {
     } else {
       statusMessage.value = `Conversion failed: ${errorMessage}. Please try again or split your text into smaller chunks.`;
     }
-    console.error("Conversion error:", error);
   } finally {
     isConverting.value = false;
   }
